@@ -148,3 +148,38 @@ def test_raiz_cuadrada_negativo():
         assert False, "Debería lanzar ValueError para números negativos"
     except ValueError:
         assert True
+
+
+
+
+        # Tests para función exponencial e^x (sin usar math.exp)
+
+def test_exponencial_cero():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # e^0 = 1
+    assert abs(calc.exponencial(0) - 1) < 0.001
+
+def test_exponencial_uno():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # e^1 ≈ 2.718
+    assert abs(calc.exponencial(1) - 2.718) < 0.001
+
+def test_exponencial_dos():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # e^2 ≈ 7.389
+    assert abs(calc.exponencial(2) - 7.389) < 0.001
+
+def test_exponencial_negativo():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # e^(-1) ≈ 0.368
+    assert abs(calc.exponencial(-1) - 0.368) < 0.001
+
+def test_exponencial_fraccion():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # e^(0.5) ≈ 1.649
+    assert abs(calc.exponencial(0.5) - 1.649) < 0.001

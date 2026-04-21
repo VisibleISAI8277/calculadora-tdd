@@ -48,3 +48,29 @@ class Calculadora:
                 return x_nuevo
             
             x = x_nuevo
+
+
+
+
+              
+    def exponencial(self, x, precision=0.001, max_iter=100):
+        """
+        Calcula e^x usando la serie de Taylor
+        SIN usar librerías matemáticas.
+        e^x = 1 + x + x²/2! + x³/3! + x⁴/4! + ...
+        
+        Cada término se calcula como: término_anterior * x / n
+        """
+        resultado = 1  # Primer término (n=0): x^0/0! = 1
+        termino = 1    # Término actual
+        
+        for n in range(1, max_iter + 1):
+            # Calcular siguiente término: término_anterior * x / n
+            termino = self.dividir(self.multiplicar(termino, x), n)
+            resultado = self.sumar(resultado, termino)
+            
+            # Criterio de parada: término muy pequeño
+            if abs(termino) < precision:
+                break
+        
+        return resultado

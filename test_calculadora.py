@@ -79,3 +79,33 @@ def test_multiplicar_por_uno():
     from calculadora import Calculadora
     calc = Calculadora()
     assert calc.multiplicar(7, 1) == 7
+
+
+
+
+
+# Tests para división
+
+def test_dividir_dos_positivos():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    assert calc.dividir(10, 2) == 5
+
+def test_dividir_negativos():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    assert calc.dividir(-10, -2) == 5
+
+def test_dividir_por_cero():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    try:
+        calc.dividir(10, 0)
+        assert False, "Debería lanzar ValueError"
+    except ValueError:
+        assert True
+
+def test_dividir_decimales():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    assert abs(calc.dividir(7, 2) - 3.5) < 0.001

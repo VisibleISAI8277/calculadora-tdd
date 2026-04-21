@@ -109,3 +109,42 @@ def test_dividir_decimales():
     from calculadora import Calculadora
     calc = Calculadora()
     assert abs(calc.dividir(7, 2) - 3.5) < 0.001
+
+
+
+
+# Tests para raíz cuadrada (sin usar math.sqrt)
+
+def test_raiz_cuadrada_4():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # √4 = 2, con precisión de 0.001
+    assert abs(calc.raiz_cuadrada(4) - 2) < 0.001
+
+def test_raiz_cuadrada_9():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # √9 = 3
+    assert abs(calc.raiz_cuadrada(9) - 3) < 0.001
+
+def test_raiz_cuadrada_2():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # √2 ≈ 1.414
+    assert abs(calc.raiz_cuadrada(2) - 1.414) < 0.001
+
+def test_raiz_cuadrada_cero():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # √0 = 0
+    assert calc.raiz_cuadrada(0) == 0
+
+def test_raiz_cuadrada_negativo():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    # La raíz de negativo debe lanzar error
+    try:
+        calc.raiz_cuadrada(-4)
+        assert False, "Debería lanzar ValueError para números negativos"
+    except ValueError:
+        assert True

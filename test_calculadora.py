@@ -1,4 +1,6 @@
 # test_calculadora.py
+
+
 # Primer test: suma de dos números positivos
 
 def test_suma_dos_positivos():
@@ -15,8 +17,9 @@ def test_suma_dos_positivos():
 
 
 
-    
 
+    
+# Primer test: resta de dos números positivos
 def test_resta_dos_positivos():
     # ARRANGE: Preparar el escenario
     from calculadora import Calculadora
@@ -49,3 +52,30 @@ def test_resta_cero():
     
     # ASSERT
     assert resultado == 5
+
+
+
+
+
+
+# Tests para multiplicación
+
+def test_multiplicar_dos_positivos():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    assert calc.multiplicar(3, 4) == 12
+
+def test_multiplicar_negativos():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    assert calc.multiplicar(-3, -4) == 12
+
+def test_multiplicar_por_cero():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    assert calc.multiplicar(5, 0) == 0
+
+def test_multiplicar_por_uno():
+    from calculadora import Calculadora
+    calc = Calculadora()
+    assert calc.multiplicar(7, 1) == 7
